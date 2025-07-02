@@ -1,3 +1,6 @@
+"""
+MNISTのファッション版 (Fashion MNIST，クラス数10) を多層パーセプトロンによって分類する
+"""
 import os
 import numpy as np
 import pandas as pd

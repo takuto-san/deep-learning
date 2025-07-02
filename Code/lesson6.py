@@ -1,3 +1,6 @@
+"""
+FCNでより高性能なVOC2011データセットのセグメンテーションモデルを実装する
+"""
 import os
 import random
 import numpy as np

@@ -1,3 +1,6 @@
+"""
+ViTによる画像分類を実装する
+"""
 import os
 import sys
 import random

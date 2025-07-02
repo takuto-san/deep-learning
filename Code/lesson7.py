@@ -1,3 +1,6 @@
+"""
+RNNを用いてIMDbのsentiment analysisを実装する
+"""
 import os
 import random
 import numpy as np

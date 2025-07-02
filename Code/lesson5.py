@@ -1,3 +1,6 @@
+"""
+CNNでより高精度なCIFAR10の分類器を実装する
+"""
 import os
 import random
 import numpy as np
