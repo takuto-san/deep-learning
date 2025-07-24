@@ -30,9 +30,8 @@ import random
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
 
-
+# 乱数シードを固定する
 def set_seed(seed):
-    """乱数シードを固定する"""
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -276,7 +275,7 @@ if __name__ == '__main__':
     train_loader, valid_loader, test_loader = setup_dataloaders(config)
     print(f"Using device: {config.device}")
 
-    # モデル、損失関数、最適化手法の定義
+    # モデル、損失関数、最適化アルゴリズムの定義
     model = PretrainedUNet(num_classes=config.num_classes, in_channels=config.in_channels).to(config.device)
     criterion = nn.CrossEntropyLoss(ignore_index=255)
     optimizer = optim.Adam(model.parameters(), lr=config.learning_rate, weight_decay=config.weight_decay)

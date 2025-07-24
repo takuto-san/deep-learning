@@ -1,5 +1,5 @@
 """
-テーマ：RNNを用いてIMDbのsentiment analysisを実装する
+テーマ：変分オートエンコーダ（VAE）を用いて、FasionMNISTの画像を生成する
 """
 import os
 import random
@@ -148,7 +148,7 @@ if __name__ == '__main__':
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     print(f"使用デバイス: {device}")
 
-
+    # データローダ
     train_dataloader = DataLoader(
         list(zip(t_train, x_train)),
         batch_size=batch_size,
@@ -167,7 +167,6 @@ if __name__ == '__main__':
         shuffle=False,
         collate_fn=collate_batch,
     )
-
 
     # 学習ループ
     net = SequenceTaggingNet(word_num, emb_dim, hid_dim).to(device)

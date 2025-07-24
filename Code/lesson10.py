@@ -243,15 +243,15 @@ if __name__ == '__main__':
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     print(f"Using device: {device}")
 
-    try:
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-    except NameError:
-        script_dir = os.getcwd()
+    # パスの設定
+    script_dir = os.path.dirname(os.path.abspath(__file__))
     data_path = os.path.join(script_dir, '..', 'Data', 'Lecture10_dataset')
 
+    # データセットの取り込み
     x_train_all = np.load(os.path.join(data_path, 'x_train.npy'))
     t_train_all = np.load(os.path.join(data_path, 't_train.npy'))
 
+    # データの前処理
     transform = transforms.Compose([
         transforms.ToTensor(),
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
@@ -264,6 +264,7 @@ if __name__ == '__main__':
     train_data = CustomDataset(x_train, t_train, transform=transform)
     valid_data = CustomDataset(x_val, t_val, transform=transform)
 
+    # データローダ
     dataloader_train = torch.utils.data.DataLoader(train_data, batch_size=128, shuffle=True)
     dataloader_valid = torch.utils.data.DataLoader(valid_data, batch_size=128, shuffle=False)
 
@@ -272,6 +273,7 @@ if __name__ == '__main__':
     pretrain_model = MAE_ViT(pretrain_encoder, pretrain_decoder)
     optimizer_pretrain = optim.AdamW(pretrain_model.parameters(), lr=1e-3)
     
+    # 事前学習
     run_pretraining(
         model=pretrain_model,
         dataloader=dataloader_train,
@@ -284,6 +286,7 @@ if __name__ == '__main__':
     optimizer_probe = optim.AdamW(classifier_model.head.parameters(), lr=1e-3)
     criterion = nn.CrossEntropyLoss()
 
+    # 線形プロービング
     run_linear_probing(
         model=classifier_model,
         dataloader_train=dataloader_train,
