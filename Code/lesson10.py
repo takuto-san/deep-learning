@@ -1,5 +1,5 @@
 """
-自己教師あり学習を用いて事前学習を行い、得られた表現をLinear probingで評価する
+テーマ：自己教師あり学習を用いて事前学習を行い、得られた表現をLinear probingで評価する
 """
 import os
 import random
@@ -293,3 +293,5 @@ if __name__ == '__main__':
         n_epochs=10,
         device=device
     )
+
+# 動作確認済み。実際に動かすときはgoogle colabを使わないと処理が終わらない

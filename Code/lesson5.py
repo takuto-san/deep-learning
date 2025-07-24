@@ -1,5 +1,5 @@
 """
-CNNでより高精度なCIFAR10の分類器を実装する
+テーマ：CNNでより高精度なCIFAR10の分類器を実装する
 """
 import os
 import random
@@ -214,4 +214,4 @@ if __name__ == '__main__':
         device=device
     )
 
-# 実際に動かすときはGoogleColabでやった方がいい（処理が終わらない）
+# 動作確認済み。実際に動かすときはgoogle colabを使わないと処理が終わらない

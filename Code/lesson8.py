@@ -1,5 +1,5 @@
 """
-ViTによる画像分類を実装する
+テーマ：ViTによる画像分類を実装する
 """
 import os
 import sys
@@ -406,4 +406,4 @@ if __name__ == '__main__':
     print(f"Train Acc.: {(train_acc / len(train_data)):.4f}")
     print(f"Valid Acc. : {(valid_acc / len(valid_data)):.4f}")
 
-# 実際に動かすときはGoogleColabでやった方がいい（処理が終わらない）
+# 動作確認済み。実際に動かすときはgoogle colabを使わないと処理が終わらない

@@ -1,5 +1,5 @@
 """
-MNISTのファッション版 (Fashion MNIST，クラス数10) を多層パーセプトロンによって分類する
+テーマ：MNISTのファッション版 (Fashion MNIST，クラス数10) を多層パーセプトロンによって分類する
 """
 import torch._dynamo
 import os

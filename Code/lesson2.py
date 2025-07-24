@@ -1,5 +1,5 @@
 """
-MNISTのファッション版 (Fashion MNIST，クラス数10) をソフトマックス回帰によって分類する
+テーマ：MNISTのファッション版 (Fashion MNIST，クラス数10) をソフトマックス回帰によって分類する
 """
 import os
 import sys
